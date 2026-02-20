@@ -3,7 +3,8 @@
     "allow": [
       "Bash(node --version:*)",
       "Bash(npm:*)",
-      "Bash(python3:*)"
+      "Bash(python3:*)",
+      "Bash(node /c/Users/daeho/daehoonchung/gitdrop/dist/index.js:*)"
     ]
   }
 }
