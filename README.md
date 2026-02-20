@@ -2,6 +2,16 @@
 
 To software engineers who are punished for finishing their work early, here's a quick fix. Automatically spread your local code changes across a realistic GitHub commit schedule. A background daemon fires real `git push` commands at authentic wall-clock times without fake timestamps.
 
+---
+
+## Development
+
+```bash
+npm run build    # compile TypeScript to dist/
+npm run lint     # type-check without emitting
+npm run dev      # run directly via ts-node (for development)
+```
+
 ## How it works
 
 **1. Run once upfront**
@@ -243,36 +253,3 @@ gitdrop stores daemon state in `~/.gitdrop/`:
 ```
 
 ---
-
-## Project structure
-
-```
-src/
-  index.ts              # CLI entry point (commander)
-  types/config.ts       # TypeScript interfaces and Zod schemas
-  commands/
-    init.ts             # gitdrop init
-    preview.ts          # gitdrop preview
-    run.ts              # gitdrop run — diff, chunk, spawn daemon
-    status.ts           # gitdrop status
-  core/
-    configLoader.ts     # YAML parsing and validation
-    repoManager.ts      # Git operations (clone, copy, commit, push)
-    differ.ts           # File diff and chunking logic
-    distributor.ts      # Time distribution across the window
-    daemon.ts           # Background process — fires commits via node-schedule
-  utils/
-    logger.ts           # Colored console output
-    spinner.ts          # Ora spinner factory
-    timeUtils.ts        # Time parsing and distribution helpers
-```
-
----
-
-## Development
-
-```bash
-npm run build    # compile TypeScript to dist/
-npm run lint     # type-check without emitting
-npm run dev      # run directly via ts-node (for development)
-```
